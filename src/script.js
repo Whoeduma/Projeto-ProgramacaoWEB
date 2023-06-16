@@ -24,6 +24,25 @@ function mostrarOrcamento() {
     orcamento += "\nTotal: R$ " + total.toFixed(2);
 
     alert(orcamento);
+
+    var mysql = require('mysql2');
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Dud@2912",
+        database:"webdb"
+        });
+        con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = "INSERT INTO dados (id_orcamento, nome, email, valor) VALUES (default, '"+ nome + "', '"+ email + "', '"+ total + "')"
+
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("Database created");
+        });
+        });
+
 }
 
 function calcularTotal() {
@@ -67,3 +86,5 @@ function incrementQuantity(inputId) {
 
         calcularTotal();
     }
+
+        
