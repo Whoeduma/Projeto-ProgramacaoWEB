@@ -72,8 +72,8 @@ function incrementQuantity(inputId) {
     }
   }
 
-  function alterarQuantidade(aumentar) {
-        var inputQuantidade = document.getElementById("quantidade");
+  function alterarQuantidade(aumentar, inputId) {
+        var inputQuantidade = document.getElementById(inputId);
         var valorAtual = parseInt(inputQuantidade.value);
 
         if (aumentar) {
